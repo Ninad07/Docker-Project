@@ -1,0 +1,31 @@
+version: '3'
+services:
+  sqlos:
+    image: mysql:5.7
+    volumes:
+           - sql_storage:/var/lib/mysql
+    restart: always
+    environment:
+            MYSQL_ROOT_PASSWORD: root_pass
+            MYSQL_USER: ninad
+            MYSQL_PASSWORD: redhat
+            MYSQL_DATABASE: mydatabase
+
+  phpos:
+    image: php_web:1
+    depends_on:
+              - sqlos
+    ports:
+            - 9888:80
+    volumes:
+           - php_storage:/var/www/html
+    
+ 
+    stdin_open: true  
+
+    tty: true  
+
+volumes:
+        sql_storage:
+        php_storage:
+
