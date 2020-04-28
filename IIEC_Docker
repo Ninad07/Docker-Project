@@ -1,0 +1,5 @@
+Hello
+I have created a YAML file to solve the problem of configuring PHP, its database (usually MySQL) and required softwares such as XAMPP for Linux users.
+I have commited my OS container and uploaded the image in my repository in Docker hub
+For PHP-XAMPP: "docker pull dockerninad07/php_web:1"
+For MySQL database: "docker pull mysql:5.7"
