@@ -1,31 +1,32 @@
 version: '3'
 services:
-  sqlos:
-    image: mysql:5.7
-    volumes:
-           - sql_storage:/var/lib/mysql
-    restart: always
-    environment:
-            MYSQL_ROOT_PASSWORD: root_pass
-            MYSQL_USER: ninad
-            MYSQL_PASSWORD: redhat
-            MYSQL_DATABASE: mydatabase
+   db_os:
+      image: mysql:5.7
+      volumes: 
+             - sql_db_storage:/var/lib/mysql
+      restart: always
+      environment:
+              MYSQL_ROOT_PASSWORD: root_pass
+              MYSQL_USER: Ninad
+              MYSQL_PASSWORD: Redhat
+              MYSQL_DATABASE: jen_db
 
-  phpos:
-    image: php_web:1
-    depends_on:
-              - sqlos
-    ports:
-            - 9888:80
-    volumes:
-           - php_storage:/var/www/html
-    
- 
-    stdin_open: true  
 
-    tty: true  
+   jenkins_os:
+      image: jenkins
+      restart: always
+      depends_on:
+              - db_os
+      ports:
+              - 8080:8080
+              - 50000:50000
+      
+      environment:
+              JENKINS_SLAVE_AGENT_PORT: 50001
+      
+      volumes:
+             - jen_os_storage:/var/jenkins_home
 
 volumes:
-        sql_storage:
-        php_storage:
-
+        sql_db_storage:
+        jen_os_storage:
