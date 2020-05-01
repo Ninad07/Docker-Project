@@ -1,0 +1,18 @@
+Hello Learners
+
+I have created a Docker compose file, that performs the task of configuring, installing and running Jenkins on the top of Docker.
+Jenkins is a DevOps CI/CD tool and an open source automation server which enables developers around the world to reliably build, test, and deploy their software.
+It is normally a Web UI, which stores its data in a database like MySQL.
+
+For that, I have created a persistent volume in Jenkins image by linking it with MySQL Database Server. 
+  
+  For using the YAML file, you need to pull Jenkins and MySQL:5.7 images from the docker hub.
+  On running the compose file, Jenkins will be automatically configured and install.
+  Jenkins runs on port 8080
+  To launch Jenkins, enter the IP address of the base OS, in my case RedHat 8, in any remote server for example windows, followed by port 8080.
+  It will start Jenkins in a few minutes and prompt an initial password.
+  Enter the password in the Jenkins page and then you are good to go.
+
+These complex concepts were easily explained to me by Vimal Daga sir.
+I would like to thank Vimal sir for launching the IIEC_Rise campaign. His content delivery is so extra ordinary with an essence of proper complete understanding
+Once again thanks a lot sir. We owe you a lot.
